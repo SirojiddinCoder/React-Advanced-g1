@@ -1,12 +1,12 @@
 import React from "react"
+import { Reducer1 } from "./Reducer1"
 
 function App() {
 
 
   return (
     <>
- <h1>UseReducer</h1>
- <h2>Test....</h2>
+<Reducer1 />
         
     </>
   )
