@@ -2,6 +2,7 @@ import React, { useReducer, useState } from 'react'
 
 export const Reducer1 = () => {
     const [count,setCount] = useState(0)
+    const [option,setOption] = useState(1)
 
     const [counter,dispatch] = useReducer((state,action)=>{
       
@@ -13,6 +14,12 @@ export const Reducer1 = () => {
         }
           
     },0)
+
+    const onSelect =(e)=>{
+        console.log(e.target.value);
+        setOption(Number(e.target.value))
+        
+    }
   return (
     <div>
         <h2>State</h2>
@@ -24,9 +31,17 @@ export const Reducer1 = () => {
         <h2>Counter:{counter}</h2>
         <button onClick={()=>dispatch({type:"minus"})}>-</button>
         <button onClick={()=>dispatch({type:"plus"})}>+</button>
-        <button onClick={()=>dispatch({type:"byamount",payload:5})}>5</button>
-        <button onClick={()=>dispatch({type:"byamount",payload:10})}>10</button>
-        <button onClick={()=>dispatch({type:"byamount",payload:15})}>15</button>
+        <select defaultValue={1} name="name" id="id" onChange={onSelect}>
+            <option value={1}>1</option>
+            <option value={2}>2</option>
+            <option value={3}>3</option>
+            <option value={4}>4</option>
+            <option value={5}>5</option>
+        </select>
+        <button onClick={()=>dispatch({type:"byamount",payload:option})}>
+            {option}
+        </button>
+      
     </div>
   )
 }
